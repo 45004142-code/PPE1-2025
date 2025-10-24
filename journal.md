@@ -61,7 +61,7 @@ echo "${N}\t${line}"
 Mais la sortie n'était pas celle à laquelle je m'attendais...
 Le résultat était quelque chose comme 1\thttps://fr.wikipedia.org/wiki/Robot, ce qui signifie que \t était considéré comme une chaîne de caractères.
 
-Pour résoudre ce problème, j'ai ajouté l'option -e (pour l'escaping), c'est-à-dire echo -e "${N}\t${line}".
+Pour résoudre ce problème, j'ai ajouté l'option -e (pour interpréter mon "escape sequence"), c'est-à-dire echo -e "${N}\t${line}".
 Maintenant, le problème est résolu ! 
 
 
