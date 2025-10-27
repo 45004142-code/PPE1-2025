@@ -1,6 +1,7 @@
 # Journal de bord du projet encadré
 
 ## 05/10/2025 Aujourd'hui, j'ai crée le journal de bord sur github :D
+
 ## 14/10/2025 J'essaie de résoudre l'Exercice 2 (Arguments des scripts), mais j'ai rencontré plusieurs problèmes...
 
 Problème 1 : cat : ann : est un répertoire  
@@ -9,7 +10,7 @@ Pour résoudre ce problème, j’ai utilisé grep avec l’option -r (récursive
 Problème 2 : Quand j’exécute le script, il affiche « no such file or directory ».  
 J’ai ajouté ./ devant ann pour pointer correctement vers le dossier ann dans le répertoire courant (PPE1-2025).
 
-## 24/10/2025 
+## 24/10/2025 Fin de l'Exercice 2
 #!/usr/bin/bash 
 if [ $# -ne 1 ] 
 then 
@@ -50,6 +51,21 @@ if [[ $LINE =~ ^https?:// ]]
 ^ : Début de la ligne
 https? : 's' est optionnel
  => http et https
+
+ ## 24/10/2025 Miniprojet (1)
+
+• Bien séparer les valeurs par des tabulations
+J'avais d'abord écrit mon script comme suit :
+echo "${N}\t${line}"
+
+Mais la sortie n'était pas celle à laquelle je m'attendais...
+Le résultat était quelque chose comme 1\thttps://fr.wikipedia.org/wiki/Robot, ce qui signifie que \t était considéré comme une chaîne de caractères.
+
+Pour résoudre ce problème, j'ai ajouté l'option -e (pour interpréter mon "escape sequence"), c'est-à-dire echo -e "${N}\t${line}".
+Maintenant, le problème est résolu ! 
+
+
+ 
 
 
 
