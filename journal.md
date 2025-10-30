@@ -64,8 +64,26 @@ Le résultat était quelque chose comme 1\thttps://fr.wikipedia.org/wiki/Robot, 
 Pour résoudre ce problème, j'ai ajouté l'option -e (pour interpréter mon "escape sequence"), c'est-à-dire echo -e "${N}\t${line}".
 Maintenant, le problème est résolu ! 
 
+## 27/10/2025 Miniprojet (2)
 
- 
+Pour récupérer le code HTTP, j’ai d’abord écrit la commande suivante :
+
+CODE=$(curl -i -s -L "$line" | head -n 1)
+if [[ "$http_status" != *"200"* ]]; then
+    echo "Erreur détectée dans le code HTTP !"
+fi
+
+En effet, lorsque j’observais le résultat de curl, la première ligne de la sortie contenait le code HTTP.
+Cependant, lorsque j’ai exécuté mon script, le code HTTP affichait toujours « Erreur » pour toutes les URLs.
+
+J’ai donc modifié mon code comme suit :
+
+curl -s -o /dev/null -w "%{http_code}" "$URL"
+
+Grâce à l’option -w "%{http_code}", je n’ai plus besoin d’utiliser head -n 1.
+Après cette modification, j’ai relancé mon script et la sortie était correctement affichée.
+
+
 
 
 
