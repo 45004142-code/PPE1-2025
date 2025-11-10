@@ -20,7 +20,6 @@ do
 	# Nombre de mots
 	WORDS=$(curl -s -L "$line" | wc -w)
 	
-	echo -e "${N}\t${line}\t${CODE}\t${ENCODING}\t${WORD}" >> tableaux/tableau-fr.tsv
+	echo -e "${N}\t${line}\t${CODE}\t${ENCODING}\t${WORDS}" >> tableaux/tableau-fr.tsv
 
 done < "$FICHIER_URLS"
-
